@@ -14,7 +14,7 @@ const Home = () => {
         <SideBar />
       </div>
       <div className={styles.Home_wrapper}>
-        <img src="../public/logo.png" />
+        <img src="/logo.png" />
         <h2>No Project Selected</h2>
         <p>Select a project or get started with a new one</p>
         <button onClick={navigatePage}>Create new Project</button>
