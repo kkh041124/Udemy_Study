@@ -6,7 +6,9 @@ const SideBar = ({ projects }) => {
   const navigatePage = () => {
     navigate("/edit");
   };
-
+  const navigateDetail = (id) => {
+    navigate(`/detail/${id}`);
+  };
   return (
     <div className={styles.SideBar}>
       <div className={styles.SideBar_wrapper}>
@@ -15,7 +17,10 @@ const SideBar = ({ projects }) => {
         <ul>
           {projects.length > 0 ? (
             projects.map((project, index) => (
-              <button>
+              <button
+                id={project.id}
+                onClick={() => navigateDetail(project.id)}
+              >
                 <li key={index} className={styles.ProjectItem}>
                   {project.title || "Untitled Project"}
                 </li>
