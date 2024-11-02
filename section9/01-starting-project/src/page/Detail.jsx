@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Detail = ({ tasks, projects, updateTask }) => {
+const Detail = ({ tasks, projects, updateTask, deleteTask, deleteProject }) => {
   const { id } = useParams();
   const project = projects.find((project) => project.id === parseInt(id));
   const [inputTask, setInputTask] = useState("");
-
+  const navigate = useNavigate();
   const handleTask = (e) => {
     setInputTask(e.target.value);
   };
@@ -20,9 +20,9 @@ const Detail = ({ tasks, projects, updateTask }) => {
       setInputTask(""); // 입력 후 초기화
     }
   };
-  const DeleteTask = (task) => {
-    const swift = tasks.filter((e) => e === task);
-    tasks.remove(swift);
+  const handleDelete = () => {
+    deleteProject(project);
+    navigate("/");
   };
   return (
     <div className={styles.Detail}>
@@ -33,7 +33,7 @@ const Detail = ({ tasks, projects, updateTask }) => {
           <h2>{project.description}</h2>
         </div>
         <div className={styles.Data_btn}>
-          <button>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
       <hr className={styles.hrStyle} />
@@ -45,14 +45,16 @@ const Detail = ({ tasks, projects, updateTask }) => {
             <button onClick={saveTask}>Add Task</button>
           </div>
         </div>
-        <div className={styles.Task_Data}>
-          {tasks.map((task, index) => (
-            <div key={index} className={styles.TaskItem}>
-              <h2>{task}</h2>
-              <button onClick={() => DeleteTask(task)}>Clear</button>
-            </div>
-          ))}
-        </div>
+        {tasks.length > 0 && (
+          <div className={styles.Task_Data}>
+            {tasks.map((task, index) => (
+              <div key={index} className={styles.TaskItem}>
+                <h2>{task}</h2>
+                <button onClick={() => deleteTask(task)}>Clear</button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

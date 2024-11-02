@@ -2,7 +2,12 @@ import { useState } from "react";
 import Edit from "./page/Edit";
 import Home from "./page/Home";
 import SideBar from "./component/SideBar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import styles from "./App.module.css";
 import Detail from "./page/Detail";
 
@@ -11,15 +16,24 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [isCheck, setIsCheck] = useState(false);
   const [nextId, setNextId] = useState(0);
-
   const updateProject = (newProject) => {
     setProjects([...projects, { ...newProject, id: nextId }]);
     setIsCheck(true);
     setNextId(nextId + 1);
   };
-  console.log(tasks);
+  const deleteProject = (projectDelete) => {
+    const updateProject = projects.filter(
+      (project) => project !== projectDelete
+    );
+    setProjects(updateProject);
+  };
   const updateTask = (newTask) => {
-    setTasks([...tasks, newTask.task]); // task 배열을 올바르게 업데이트
+    setTasks([...tasks, newTask.task]);
+  };
+
+  const deleteTask = (taskToDelete) => {
+    const updatedTasks = tasks.filter((task) => task !== taskToDelete);
+    setTasks(updatedTasks);
   };
 
   return (
@@ -44,6 +58,8 @@ const App = () => {
                 <Detail
                   projects={projects}
                   updateTask={updateTask}
+                  deleteTask={deleteTask}
+                  deleteProject={deleteProject}
                   tasks={tasks}
                 />
               }
