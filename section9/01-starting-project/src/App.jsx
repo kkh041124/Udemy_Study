@@ -5,14 +5,21 @@ import SideBar from "./component/SideBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styles from "./App.module.css";
 import Detail from "./page/Detail";
-function App() {
+
+const App = () => {
   const [projects, setProjects] = useState([]);
+  const [tasks, setTasks] = useState([]);
   const [isCheck, setIsCheck] = useState(false);
   const [nextId, setNextId] = useState(0);
+
   const updateProject = (newProject) => {
     setProjects([...projects, { ...newProject, id: nextId }]);
     setIsCheck(true);
     setNextId(nextId + 1);
+  };
+  console.log(tasks);
+  const updateTask = (newTask) => {
+    setTasks([...tasks, newTask.task]); // task 배열을 올바르게 업데이트
   };
 
   return (
@@ -23,7 +30,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home project={projects} isCheck={isCheck} />}
+              element={<Home projects={projects} isCheck={isCheck} />}
             />
             <Route
               path="/edit"
@@ -31,12 +38,21 @@ function App() {
                 <Edit project={projects} updateProject={updateProject} />
               }
             />
-            <Route path="/detail/:id" element={<Detail project={projects} />} />
+            <Route
+              path="/detail/:id"
+              element={
+                <Detail
+                  projects={projects}
+                  updateTask={updateTask}
+                  tasks={tasks}
+                />
+              }
+            />
           </Routes>
         </div>
       </div>
     </Router>
   );
-}
+};
 
 export default App;

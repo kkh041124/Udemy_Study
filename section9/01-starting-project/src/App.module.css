@@ -10,7 +10,7 @@
   width: 30%; /* 적당한 너비 설정 */
   height: 95vh;
   margin-top: 5vh;
-  background-color: #171722;
+  background-color: #100e0c;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
 .SideBar button {
   padding: 10px 20px;
   font-size: 30px;
-  background-color: #2d2e39;
+  background-color: #322e2a;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -46,7 +46,15 @@
   background-color: #a3a3a3b0;
   color: #fff;
 }
-
+.SideBar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.SideBar .SideBar_title {
+  display: flex;
+  flex-direction: column;
+}
 .Content {
   flex: 1;
   display: flex;

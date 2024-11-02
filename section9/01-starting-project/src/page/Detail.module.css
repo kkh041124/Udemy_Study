@@ -1,0 +1,148 @@
+.Detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.Data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  transform: translateY(-150px);
+}
+
+.Data .Data_wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  max-width: 80%;
+  margin: 0;
+}
+
+.Data h3 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.Data p {
+  font-size: 20px;
+  color: rgb(129, 129, 129);
+  margin-bottom: 4px;
+}
+
+.Data h2 {
+  font-size: 30px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 8px;
+}
+
+.Data .Data_btn {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.Data .Data_btn button {
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.Data .Data_btn button:hover {
+  color: rgb(255, 36, 36);
+}
+
+.hrStyle {
+  max-width: 100%;
+  margin: 16px 0;
+  border: none;
+  border-top: 2px solid #d3d3d3;
+  transform: translateY(-150px);
+}
+
+/*Task*/
+.Task {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-150px);
+}
+.Task .Task_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+}
+.Task .Task_wrapper .Inp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.Task_wrapper h2 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.Task_wrapper .Inp input {
+  background-color: #dcdad6;
+  border-radius: 5px;
+  height: 40px;
+  width: 40%;
+  margin-right: 10px;
+  border: none;
+  padding: 0 10px;
+}
+.Task_wrapper .Inp input:focus {
+  outline: none;
+}
+.Task_wrapper .Inp button {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.Task_wrapper .Inp button:hover {
+  font-weight: 600;
+}
+.Task_Data {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: 80%;
+  background-color: #e3e2de;
+  border-radius: 5px;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.TaskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.TaskItem h2 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.TaskItem button {
+  font-size: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  margin-left: 10px;
+}
+
+.TaskItem button:hover {
+  color: red;
+}

@@ -14,17 +14,21 @@ const SideBar = ({ projects }) => {
       <div className={styles.SideBar_wrapper}>
         <h2>YOUR PROJECT</h2>
         <button onClick={navigatePage}>+ Add Project</button>
+
         <ul>
           {projects.length > 0 ? (
             projects.map((project, index) => (
-              <button
-                id={project.id}
-                onClick={() => navigateDetail(project.id)}
-              >
-                <li key={index} className={styles.ProjectItem}>
-                  {project.title || "Untitled Project"}
-                </li>
-              </button>
+              <div className={styles.SideBar_title}>
+                <button
+                  key={project.id}
+                  id={project.id}
+                  onClick={() => navigateDetail(project.id)}
+                >
+                  <li className={styles.ProjectItem}>
+                    {project.title || "Untitled Project"}
+                  </li>
+                </button>
+              </div>
             ))
           ) : (
             <p>No Project Available</p>
